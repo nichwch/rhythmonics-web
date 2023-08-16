@@ -21,16 +21,61 @@
     eight_enabled,
   });
 
+  let audioCtx = new AudioContext();
 
-  const audioCtx = new AudioContext();
-
-  const osc = audioCtx.createOscillator();
-
-  osc.connect(audioCtx.destination)
-
-  osc.start()
-
-
+  $: {
+    audioCtx.close();
+    audioCtx = new AudioContext();
+    const start_time = audioCtx.currentTime + 0.5;
+    if (one_enabled) {
+      const osc1 = audioCtx.createOscillator();
+      osc1.frequency.setValueAtTime(speed, start_time);
+      osc1.connect(audioCtx.destination);
+      osc1.start();
+    }
+    if (two_enabled) {
+      const osc2 = audioCtx.createOscillator();
+      osc2.frequency.setValueAtTime(2 * speed, start_time);
+      osc2.connect(audioCtx.destination);
+      osc2.start();
+    }
+    if (three_enabled) {
+      const osc3 = audioCtx.createOscillator();
+      osc3.frequency.setValueAtTime(3 * speed, start_time);
+      osc3.connect(audioCtx.destination);
+      osc3.start();
+    }
+    if (four_enabled) {
+      const osc4 = audioCtx.createOscillator();
+      osc4.frequency.setValueAtTime(4 * speed, start_time);
+      osc4.connect(audioCtx.destination);
+      osc4.start();
+    }
+    if (five_enabled) {
+      const osc5 = audioCtx.createOscillator();
+      osc5.frequency.setValueAtTime(5 * speed, start_time);
+      osc5.connect(audioCtx.destination);
+      osc5.start();
+    }
+    if (six_enabled) {
+      const osc6 = audioCtx.createOscillator();
+      osc6.frequency.setValueAtTime(6 * speed, start_time);
+      osc6.connect(audioCtx.destination);
+      osc6.start();
+    }
+    if (seven_enabled) {
+      const osc7 = audioCtx.createOscillator();
+      osc7.frequency.setValueAtTime(7 * speed, start_time);
+      osc7.connect(audioCtx.destination);
+      osc7.start();
+    }
+    if (eight_enabled) {
+      const osc8 = audioCtx.createOscillator();
+      osc8.frequency.setValueAtTime(8 * speed, start_time);
+      osc8.connect(audioCtx.destination);
+      osc8.start();
+    }
+  }
 </script>
 
 <div>
